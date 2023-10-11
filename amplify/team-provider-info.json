@@ -17,6 +17,9 @@
       },
       "api": {
         "amplifyapp2": {}
+      },
+      "storage": {
+        "AmplifyApp2Bucket": {}
       }
     }
   }
