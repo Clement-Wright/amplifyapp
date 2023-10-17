@@ -131,7 +131,9 @@ const App = ({ signOut }) => {
           </Button>
         </Flex>
       </View>
-      <Heading level={2}>Current Notes</Heading>
+      <Heading level={5}>ATCS Notes</Heading>
+      <p>This is a paragraph. If you want to see a better site go to <a href="
+https://master.dmm48zw3bnrws.amplifyapp.com/">Dylans</a>.</p>
       <View margin="3rem 0">
       {notes.map((note) => (
   <Flex
@@ -148,7 +150,7 @@ const App = ({ signOut }) => {
       <Image
         src={note.image}
         alt={`visual aid for ${notes.name}`}
-        style={{ width: 400 }}
+        style={{ width: 150 }}
       />
     )}
     <Button variation="link" onClick={() => deleteNote(note)}>
