@@ -132,7 +132,7 @@ const App = ({ signOut }) => {
         </Flex>
       </View>
       <Heading level={5}>ATCS Notes</Heading>
-      <table border="0.5px" align="center"><tbody><tr><td>
+      <table border="0.5px" align="Left"><tbody><tr><td>
       <p><Text as="strong" color={'#0250043'}>Clement Wright Border:</Text></p>
       <ul>
       <li>This is a paragraph</li>
