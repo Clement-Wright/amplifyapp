@@ -144,8 +144,8 @@ const App = ({ signOut }) => {
   <Flex
     key={note.id || note.name}
     direction="row"
-    justifyContent="center"
-    alignItems="center"
+    justifyContent="Left"
+    alignItems="Left"
   >
     <Text as="strong" fontSize={14} color={'#025043'}>
       {note.name}
