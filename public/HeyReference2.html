@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('./Eminem.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .quote-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        a.next-page, a.last-page {
+            position: absolute;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a.next-page {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        a.last-page {
+            bottom: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quote-container">
+        <p>"His palms are sweaty, knees weak, arms are heavy"</p>
+        <p>- Eminem</p>
+    </div>
+    <a class="next-page" href="http://localhost:3000/Hey.html">Home Page</a>
+    <a class="last-page" href="http://localhost:3000/HeyReference.html">Last Page</a>
+</body>
+</html>
