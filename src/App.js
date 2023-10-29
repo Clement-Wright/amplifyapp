@@ -139,6 +139,7 @@ const App = ({ signOut }) => {
       <li>If you want to see a better site </li>
       <li>go to <a href="https://master.d2t590wlgmasxj.amplifyapp.com/">This Handsome Guy's Website</a>.</li>
       <li>go to <a href="./Hey.html">Motivational Quotes</a>.</li>
+      <li>go to <a href="./Portfolio.html">Clement's Portfolio App</a>.</li>
       </ul>
       <View margin="3rem 0">
       {notes.map((note) => (
