@@ -19,7 +19,7 @@ import {
   withAuthenticator,
 } from '@aws-amplify/ui-react';
  
-const App = ({ signOut }) => {
+const App = ({ signOut, user }) => {
   const [notes, setNotes] = useState([]);
  
   useEffect(() => {
@@ -29,6 +29,9 @@ const App = ({ signOut }) => {
   async function fetchNotes() {
     const apiData = await API.graphql({ query: listNotes });
     const notesFromAPI = apiData.data.listNotes.items;
+    console.log("hi")
+    console.log(user.username)
+    console.log("id: " + user.attributes.email.substring(0,user.attributes.email.indexOf('@')))
     await Promise.all(
       notesFromAPI.map(async (note) => {
         if (note.image) {
