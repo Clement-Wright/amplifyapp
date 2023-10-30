@@ -133,9 +133,9 @@ const App = ({ signOut }) => {
       </View>
       <Heading level={5}>ATCS Notes</Heading>
       <table border="0.5px" align="center"><tbody><tr><td>
-      <p><Text as="strong" color={'#0250043'}>Clement Wright Border:</Text></p>
+      <p><Text as="strong" color={'#0250043'}>Clement Wright ATCS Project</Text></p>
       <ul>
-      <li>go to <a href="./LinksPage.html">HTML Links</a>.</li>
+      <li><a href="./LinksPage.html">HTML Links Page</a>.</li>
       </ul>
       <View margin="3rem 0">
       {notes.map((note) => (
