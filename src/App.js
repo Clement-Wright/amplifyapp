@@ -13,6 +13,12 @@ import {
   Flex,
   Heading,
   Image,
+  Table,
+  TableBody,
+  Link,
+  TableHead,
+  TableRow,
+  TableCell,
   Text,
   TextField,
   View,
@@ -52,6 +58,7 @@ const App = ({ signOut, user }) => {
       name: form.get("name"),
       description: form.get("description"),
       image: image.name,
+      author: user.attributes.email,
     };
     if (!!data.image) await Storage.put(data.name, image);
     await API.graphql({
@@ -75,7 +82,8 @@ const App = ({ signOut, user }) => {
  
   
  
-{notes.map((note) => (
+<Table><TableBody>{notes.map((note) => (
+  
   <Flex
     key={note.id || note.name}
     direction="row"
@@ -101,6 +109,7 @@ const App = ({ signOut, user }) => {
     </Button>
   </Flex>
 ))}
+</TableBody></Table>
  
   return (
     <View className="App">
