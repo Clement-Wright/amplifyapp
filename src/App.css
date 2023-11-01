@@ -23,6 +23,45 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+/* App.css */
+.app-title {
+  font-family: 'Didot', serif; /* Keep the "Didot" font for the title */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.app-subtitle {
+  font-family: 'Didot', serif; /* Keep the "Didot" font for the subtitle */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.notes-table {
+  font-family: 'Times New Roman', serif; /* Apply "Times New Roman" to the notes */
+}
+/* App.css */
+/* App.css */
+.dark-mode {
+  background-color: #1a1a1a; /* Dark background color */
+  color: #ffffff; /* Light text color */
+}
+
+.dark-mode .dark-text {
+  color: #ffffff; /* Text color in dark mode */
+}
+
+.dark-mode .dark-link {
+  color: #A55858; /* Text color in dark mode */
+}
+.dark-mode .dark-subtitle {
+  font-family: 'Didot', serif; /* Keep the "Didot" font for the subtitle */
+  text-align: center;
+  margin-top: 20px;
+  color: #ffffff; /* Text color in dark mode */
+}
+
+
+
 
 .App-link {
   color: #61dafb;

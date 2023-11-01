@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
- 
 import { listNotes } from "./graphql/queries";
 import {
   createNote as createNoteMutation,
@@ -24,20 +23,19 @@ import {
   View,
   withAuthenticator,
 } from '@aws-amplify/ui-react';
- 
+
 const App = ({ signOut, user }) => {
   const [notes, setNotes] = useState([]);
- 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   useEffect(() => {
     fetchNotes();
   }, []);
- 
+
   async function fetchNotes() {
     const apiData = await API.graphql({ query: listNotes });
     const notesFromAPI = apiData.data.listNotes.items;
-    console.log("hi")
-    console.log(user.username)
-    console.log("id: " + user.attributes.email.substring(0,user.attributes.email.indexOf('@')))
+
     await Promise.all(
       notesFromAPI.map(async (note) => {
         if (note.image) {
@@ -47,9 +45,10 @@ const App = ({ signOut, user }) => {
         return note;
       })
     );
+
     setNotes(notesFromAPI);
   }
- 
+
   async function createNote(event) {
     event.preventDefault();
     const form = new FormData(event.target);
@@ -68,8 +67,7 @@ const App = ({ signOut, user }) => {
     fetchNotes();
     event.target.reset();
   }
-  
- 
+
   async function deleteNote({ id, name }) {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
@@ -79,41 +77,17 @@ const App = ({ signOut, user }) => {
       variables: { input: { id } },
     });
   }
- 
-  
- 
-<Table><TableBody>{notes.map((note) => (
-  
-  <Flex
-    key={note.id || note.name}
-    direction="row"
-    justifyContent="center"
-    alignItems="center"
-  >
-      <View
- 
-/>
-    <Text as="strong" fontWeight={700}>
-      {note.name}
-    </Text>
-    <Text as="span">{note.description}</Text>
-    {note.image && (
-      <Image
-        src={note.image}
-        alt={`visual aid for ${notes.name}`}
-        style={{ width: 400 }}
-      />
-    )}
-    <Button variation="link" onClick={() => deleteNote(note)}>
-      Delete note
-    </Button>
-  </Flex>
-))}
-</TableBody></Table>
- 
+
   return (
-    <View className="App">
-      <Heading level={1}>Clement's Notes App</Heading>
+    <View className={`App ${isDarkMode ? "dark-mode" : ""}`}>
+      <div className="app-title">
+        <Heading level={1} className={isDarkMode ? "dark-text" : ""}>
+          Clement's Notes App
+        </Heading>
+      </div>
+      <Button className={isDarkMode ? "dark-text" : ""} onClick={() => setIsDarkMode(!isDarkMode)}>
+        Toggle Dark Mode
+      </Button>
       <View as="form" margin="3rem 0" onSubmit={createNote}>
         <Flex direction="row" justifyContent="center">
           <TextField
@@ -125,10 +99,10 @@ const App = ({ signOut, user }) => {
             required
           />
           <View
-          name="image"
-          as="input"
-          type="file"
-          style={{ alignSelf: "end" }}
+            name="image"
+            as="input"
+            type="file"
+            style={{ alignSelf: "end" }}
           />
           <TextField
             name="description"
@@ -143,44 +117,88 @@ const App = ({ signOut, user }) => {
           </Button>
         </Flex>
       </View>
-      <Heading level={5}>ATCS Notes</Heading>
-      <table border="0.5px" align="center"><tbody><tr><td>
-      <p><Text as="strong" color={'#0250043'}>Clement Wright ATCS Project</Text></p>
-      <ul>
-      <li><a href="./LinksPage.html">HTML Links Page</a>.</li>
-      </ul>
-      <View margin="3rem 0">
-      {notes.map((note) => (
-  <Flex
-    key={note.id || note.name}
-    direction="row"
-    justifyContent="Left"
-    alignItems="Left"
-  >
-    <Text as="strong" fontSize={14} color={'#025043'}>
-      {note.name}
-    </Text>
-    <Text as="span">{note.description}</Text>
-    {note.image && (
-      <Image
-        src={note.image}
-        alt={`visual aid for ${notes.name}`}
-        style={{ width: 300 }}
-      />
-    )}
-    <Button variation="link" onClick={() => deleteNote(note)}>
-      <Text as="strong" fontSize={12} color={'#8E1600'}>
-      Delete note
-      </Text>
-    </Button>
-  </Flex>
-))}
-      </View></td></tr></tbody></table>
-      <Button onClick={signOut}>Sign Out</Button>
-  </View>
-    
+      <div className="app-subtitle">
+        <Heading level={5} className={isDarkMode ? "dark-text" : ""}>
+          ATCS Notes
+        </Heading>
+      </div>
+      <table border="0.5px" align="center">
+        <tbody>
+          <tr>
+            <td>
+              <p>
+                <Heading level={5} className={isDarkMode ? "dark-text" : ""}>
+                  Clement Wright ATCS Project
+                </Heading>
+              </p>
+              <ul>
+                <li ><a className={isDarkMode ? "dark-link" : ""} href="./LinksPage.html">HTML Links Page</a>.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell >
+              <Heading level={6} className={isDarkMode ? "dark-text" : ""} as="strong" fontWeight="bold">Author</Heading>
+            </TableCell>
+            <TableCell>
+            <Heading level={6} className={isDarkMode ? "dark-text" : ""} as="strong" fontWeight="bold">Note Name</Heading>
+            </TableCell>
+            <TableCell>
+            <Heading level={6} className={isDarkMode ? "dark-text" : ""} as="strong" fontWeight="bold">Description</Heading>
+            </TableCell>
+            <TableCell>
+            <Heading level={6} className={isDarkMode ? "dark-text" : ""} as="strong" fontWeight="bold">Image</Heading>
+            </TableCell>
+            <TableCell>
+            <Heading level={6} className={isDarkMode ? "dark-text" : ""} as="strong" fontWeight="bold">Delete</Heading>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {notes.map((note) => (
+            <TableRow key={note.id || note.name}>
+              <TableCell className={isDarkMode ? "dark-text" : ""}>
+                {note.author}
+              </TableCell>
+              <TableCell className={isDarkMode ? "dark-text" : ""}>
+                {note.name}
+              </TableCell>
+              <TableCell className={isDarkMode ? "dark-text" : ""}>
+                {note.description}
+              </TableCell>
+              <TableCell>
+                {note.image && (
+                  <Image
+                    src={note.image}
+                    alt={`visual aid for ${note.name}`}
+                    style={{ width: "150px" }}
+                  />
+                )}
+              </TableCell>
+              <TableCell>
+                <Button variation="link" onClick={() => deleteNote(note)}>
+                  <Text
+                    as="strong"
+                    fontSize={10}
+                    color={isDarkMode ? "#ffffff" : "#ff6600"}
+                  >
+                    Delete
+                  </Text>
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <Button onClick={signOut} className={isDarkMode ? "dark-text" : ""}>
+        Sign Out
+      </Button>
+    </View>
   );
-  
 };
- 
+
 export default withAuthenticator(App);
