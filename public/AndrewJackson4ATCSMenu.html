@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Andrew Jackson Restaurant</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("USFlag.jpg");
+  min-height: 75%;
+}
+.quote-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+.menu {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <p><a href="./AndrewJackson4ATCSHome.html" class="w3-button w3-block w3-black">Home</a>.</p>
+    </div>
+    <div class="w3-col s3">
+      <p><a href="./AndrewJackson4ATCSAbout.html" class="w3-button w3-block w3-black">About</a>.</p>
+    </div>
+    <div class="w3-col s3">
+      <p><a href="./AndrewJackson4ATCSMenu.html" class="w3-button w3-block w3-black">Menu</a>.</p>
+    </div>
+    <div class="w3-col s3">
+      <p><a href="./Andrew4ATCSLocation.html" class="w3-button w3-block w3-black">Location</a>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-sand w3-large">
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+    <br></br>
+    <br></br>
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Beverage');" id="myLink">
+        <div class="w3-col s6 tablink">Beverage</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Appetizer');">
+        <div class="w3-col s6 tablink">Appetizer</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Soup or Salad');">
+        <div class="w3-col s6 tablink">Soup or Salad</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Sides');">
+        <div class="w3-col s6 tablink">Sides</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Main Course');">
+        <div class="w3-col s6 tablink">Main Course</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Desserts');">
+        <div class="w3-col s6 tablink">Desserts</div>
+      </a>
+    </div>
+    <div id="Main Course" class="w3-container menu w3-padding-48 w3-card">
+        <h5>Bargain Beef Wellington</h5>
+        <p class="w3-text-grey">Tender, mouthwatering beef tenderloin, encased in a rich mushroom duxelles and prosciutto, 
+            then enveloped in golden, flaky puff pastry. Baked to perfection, this classic masterpiece is served with a 
+            velvety red wine reduction and a side of seasonal vegetables. A luxurious, indulgent experience that's sure to 
+            delight your taste buds. <br>$20.00</p> <img src="BeefWell.jpg" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+      </div>  
+
+    <div id="Beverage" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Silver Bullet Cocktail</h5>
+      <p class="w3-text-grey">Description 4 Cocktail</p><img src="SilverBull.jpg" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+    </div>
+
+    <div id="Sides" class="w3-container menu w3-padding-48 w3-card">
+        <h5>Rachel Red Snapper</h5>
+        <p class="w3-text-grey">Description 4 red snapper</p><img src="RachelRed.webp" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+      </div>
+
+      <div id="Appetizer" class="w3-container menu w3-padding-48 w3-card">
+        <h5>1400lb Cheese with Crackers</h5>
+        <p class="w3-text-grey">Description 4 chees and crackers</p> <img src="CheeseAndCrack.webp" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+        <h5>Brioche Bus Melts</h5>
+        <p class="w3-text-grey">Description 4 Bus melts</p><img src="BriocheMelts.jpg" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+        
+      </div>
+
+      <div id="Soup or Salad" class="w3-container menu w3-padding-48 w3-card">
+        <h5>Calhoun Clam Chowder</h5>
+        <p class="w3-text-grey">descriptioon 4 clam</p><img src="ClamChowder.webp" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+        <h5>Homemade Henry Salad</h5>
+        <p class="w3-text-grey">Description 4 salad</p><img src="Salad.jpg" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+    </div>
+
+    <div id="Desserts" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Inaugural Party Purfait</h5>
+      <p class="w3-text-grey">Descriptoin for party</p><img src="PartyParf.webp" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+      <h5>Texas Treschleches</h5>
+      <p class="w3-text-grey">Descriptoin for Texas</p><img src="TexasTres.jpg" style="width:50%;max-width:1000px;margin-top:32px;"> <br>
+    </div>  
+    <img src="WhiteHouse.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
+  </div>
+  <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Food Item</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td>Bargain Beef Wellington</td>
+      <td>$20.00</td>
+    </tr>
+    <tr>
+      <td>Silver Bullet Cocktail</td>
+      <td>$10.00</td>
+    </tr>
+    
+    <!-- Add more food items as needed -->
+  </table>
+  
+</div>
+
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Powered by me, Clement Wright</a></p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>

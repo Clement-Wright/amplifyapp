@@ -51,7 +51,7 @@
 }
 
 .dark-mode .dark-link {
-  color: #A55858; /* Text color in dark mode */
+  color: #2a8cdc; /* Text color in dark mode */
 }
 .dark-mode .dark-subtitle {
   font-family: 'Didot', serif; /* Keep the "Didot" font for the subtitle */
