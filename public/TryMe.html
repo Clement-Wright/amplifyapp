@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
+<style>
+    div h1 a {
+        background: rgb(130, 20, 220);
+
+}
+#para1 {
+  text-align: center;
+  color: rgb(157, 255, 0);
+}
+    p {
+  text-align: center;
+  color: red;
+}
+.hi {
+  text-align: center;
+  color: rgb(43, 194, 194);
+  font-family: "Times New Roman", Times, serif;
+}
+td:nth-child(3) {
+  background: lightgreen;
+}
+</style>
 <head>
 <title>My first page</title>
 </head>
+
 <body>
     <table>
         <tr>
-          <th colspan="2">Name</th>
-          <th class="hi">Age</th>
+          <td colspan="2">Name</td>
+          <th class="hi" style="background: lightgreen">Age</th>
         </tr>
         <tr>
           <td class="hi">Jill</td>
@@ -19,9 +42,17 @@
           <td>Jackson</td>
           <td>57</td>
         </tr>
+        <tr>
+            <td class="hi">Newton</td>
+            <td>Jason</td>
+            <td>100</td>
+          </tr>
       </table> 
+      <div>
+        <h1> This is <a href="./AndrewJackson.html" id="para1">Andrew Jackson</a></h1>
+      </div>
 <h1>This is <a href="./hiyou.html">hiyou</a></h1>
 <p>This is a paragraph.</p>
-<img src="./Thumbnail 2.jpg"/>
+<img src="logo512.png"/>
 </body>
 </html> 
